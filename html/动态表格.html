@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 500px;
+            margin: 100px auto;
+           
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td,th{
+            border:1px solid #333333;
+
+        }
+        thead tr{
+            height:40px;
+            background-color: #999;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>科目</td>
+                <td>成绩</td>
+                <td>是否删除</td>
+            </tr>
+        </thead>
+         <tbody>
+            <tr>
+                <td>程潇</td>
+                <td>java</td>
+                <td>100</td>
+                <td><a href="#">删除</a></td>
+            </tr>
+            <tr>
+                <td>程潇</td>
+                <td>java</td>
+                <td>100</td>
+                <td><a href="#">删除</a></td>
+            </tr>
+            <tr>
+                <td>程潇</td>
+                <td>java</td>
+                <td>100</td>
+                <td><a href="#">删除</a></td>
+            </tr>
+            <tr>
+                <td>程潇</td>
+                <td>java</td>
+                <td>100</td>
+                <td><a href="#">删除</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var data=[{
+            name:'王志毅',
+            subject:'javascript',
+            score:100
+        },{
+            name:'易烊千玺',
+            subject:'C#',
+            score:'数据库'
+        },{
+            name:'刘梦',
+            subject:'药水哥',
+            score:'王者荣耀'
+        }];
+        //wangtbody里面创建行
+        var tbody=document.querySelector('tbody');
+        for(var i=0;i<data.length;i++){
+            var tr=document.createElement('tr');
+            tbody.appendChild(tr);
+              //行里面的数据对象
+        for(var k in data[i]){
+            //创建单元格
+            var td=document.createElement('td');
+            //获取属性值
+            td.innerHTML=data[i][k];
+
+            tr.appendChild(td);
+        }
+        //创建删除单元格
+        var td=document.createElement('td');
+        td.innerHTML='<a href="javascript:;">删除</a>'
+        tr.appendChild(td);
+        }
+        //删除操作
+        var as=document.querySelectorAll('a');
+        for(var i=0;i<as.length;i++){
+            as[i].onclick=function(){
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+      
+
+        //
+
+        
+    </script>
+</body>
+</html>
